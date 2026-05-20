@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://u0a8ddk67fx8"]
+[gd_scene format=3 uid="uid://sy6vpu7m8jgc"]
 
-[ext_resource type="Script" uid="uid://c6uirtk2tqm4e" path="res://scripts/song_select.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://swixed2shcs5" path="res://fondito.jpg" id="2_f7aea"]
-[ext_resource type="FontFile" uid="uid://du4vnpp518n34" path="res://RhythmicHits.ttf" id="3_yxpmw"]
-[ext_resource type="AudioStream" uid="uid://bjs6t600cbndd" path="res://menumusic.wav" id="4_yxpmw"]
-[ext_resource type="Texture2D" uid="uid://fle5gifu30c0" path="res://settings.png" id="5_rtea6"]
+[ext_resource type="Script" uid="uid://c6uirtk2tqm4e" path="res://scripts/song_select.gd" id="1_abcqd"]
+[ext_resource type="Texture2D" uid="uid://swixed2shcs5" path="res://fondito.jpg" id="2_1fack"]
+[ext_resource type="AudioStream" uid="uid://bjs6t600cbndd" path="res://menumusic.wav" id="3_rwalk"]
+[ext_resource type="Texture2D" uid="uid://fle5gifu30c0" path="res://settings.png" id="4_hwm7x"]
+[ext_resource type="FontFile" uid="uid://du4vnpp518n34" path="res://RhythmicHits.ttf" id="5_eq4qm"]
 
 [sub_resource type="Environment" id="Environment_rtea6"]
 background_mode = 3
@@ -89,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_script")
+script = ExtResource("1_abcqd")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1245086685]
 environment = SubResource("Environment_rtea6")
@@ -104,12 +104,12 @@ color = Color(0.07, 0.07, 0.12, 1)
 modulate = Color(1, 1, 1, 0.38039216)
 position = Vector2(577.5, 325.22333)
 scale = Vector2(1.3693588, 1.2515482)
-texture = ExtResource("2_f7aea")
+texture = ExtResource("2_1fack")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1080198715]
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=1527821194]
-stream = ExtResource("4_yxpmw")
+stream = ExtResource("3_rwalk")
 autoplay = true
 
 [node name="SettingsButton" type="Button" parent="." unique_id=795542271]
@@ -123,7 +123,7 @@ flat = true
 [node name="Settings" type="Sprite2D" parent="." unique_id=1542550562]
 position = Vector2(40.5, 34)
 scale = Vector2(0.07617187, 0.078125)
-texture = ExtResource("5_rtea6")
+texture = ExtResource("4_hwm7x")
 
 [node name="CyberPanel" type="PanelContainer" parent="." unique_id=548884191]
 layout_mode = 0
@@ -138,7 +138,7 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="CyberPanel/VBox" unique_id=1207639607]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_yxpmw")
+theme_override_fonts/font = ExtResource("5_eq4qm")
 theme_override_font_sizes/font_size = 44
 text = "RHYTHM GAME"
 horizontal_alignment = 1
@@ -146,7 +146,7 @@ horizontal_alignment = 1
 [node name="SubtitleLabel" type="Label" parent="CyberPanel/VBox" unique_id=262662132]
 modulate = Color(0.7, 0.7, 0.95, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_yxpmw")
+theme_override_fonts/font = ExtResource("5_eq4qm")
 theme_override_font_sizes/font_size = 17
 text = "Selecciona una cancion"
 horizontal_alignment = 1
@@ -188,7 +188,7 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="CyberPanel/VBox" unique_id=1673403670]
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_yxpmw")
+theme_override_fonts/font = ExtResource("5_eq4qm")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vakh2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a50jo")
@@ -271,7 +271,7 @@ offset_left = 225.0
 offset_top = 20.0
 offset_right = 283.0
 offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("3_yxpmw")
+theme_override_fonts/font = ExtResource("5_eq4qm")
 text = "Cerrar"
 
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

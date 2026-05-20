@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://x07g0ofh52kb" path="res://scripts/database.gd" id="2_00tan"]
 [ext_resource type="FontFile" uid="uid://du4vnpp518n34" path="res://RhythmicHits.ttf" id="2_l1v76"]
 [ext_resource type="Script" uid="uid://dttyfnl5ygkmg" path="res://scripts/video_background.gd" id="3_videobg"]
+[ext_resource type="Shader" uid="uid://gk44pgcscdc5" path="res://scenes/gameplay.gdshader" id="5_4bh5q"]
+[ext_resource type="Shader" uid="uid://e3qokehahfe5" path="res://scenes/sky.gdshader" id="5_101mb"]
+[ext_resource type="Texture2D" uid="uid://8fndc5yi7go6" path="res://assets/sky.png" id="5_e124b"]
+[ext_resource type="PackedScene" uid="uid://bebgeh7l2pgh0" path="res://scenes/nat.tscn" id="5_ocj2s"]
+[ext_resource type="Texture2D" uid="uid://cv0nptee1jy0q" path="res://assets/ground.png" id="6_din8e"]
+[ext_resource type="AudioStream" uid="uid://dqbewhfw2ewps" path="res://assets/hit_sound.mp3" id="10_hbo4f"]
 
 [sub_resource type="Environment" id="Environment_ct7aa"]
 background_mode = 3
@@ -14,6 +20,14 @@ glow_levels/6 = 1.75
 glow_intensity = 4.26
 glow_blend_mode = 0
 glow_hdr_threshold = 0.85
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbo4f"]
+shader = ExtResource("5_101mb")
+shader_parameter/scroll_speed = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e124b"]
+shader = ExtResource("5_4bh5q")
+shader_parameter/scroll_speed = 0.5
 
 [node name="Gameplay" type="Node2D" unique_id=558646755]
 script = ExtResource("1_script")
@@ -146,3 +160,34 @@ theme_override_fonts/font = ExtResource("2_l1v76")
 theme_override_font_sizes/font_size = 14
 text = "ESC = Salir al menu"
 horizontal_alignment = 2
+
+[node name="Sky" type="TextureRect" parent="." unique_id=1236425666]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hbo4f")
+offset_left = -141.0
+offset_top = -3.0
+offset_right = 5715.0
+offset_bottom = 701.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("5_e124b")
+stretch_mode = 1
+
+[node name="Ground" type="TextureRect" parent="." unique_id=1425667683]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_e124b")
+offset_left = -46.999985
+offset_top = 78.00001
+offset_right = 1998.6692
+offset_bottom = 330.9998
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("6_din8e")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Nat" parent="." unique_id=1828354754 instance=ExtResource("5_ocj2s")]
+position = Vector2(150, 133.75)
+scale = Vector2(0.25, 0.25)
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=216224091]
+stream = ExtResource("10_hbo4f")
+volume_db = -80.0
